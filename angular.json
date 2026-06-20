@@ -45,26 +45,7 @@
               "src/assets/css/swiper-bundle.min.css",
               "src/assets/css/jsvectormap.min.css",
               "src/assets/css/style.css"
-            ],
-            "scripts": [
-  "src/assets/js/bootstrap.bundle.min.js",
-  "src/assets/js/sidebar-menu.js",
-  "src/assets/js/quill.min.js",
-  "src/assets/js/data-table.js",
-  "src/assets/js/prism.js",
-  "src/assets/js/clipboard.min.js",
-  "src/assets/js/simplebar.min.js",
-  "src/assets/js/apexcharts.min.js",
-  "src/assets/js/echarts.min.js",
-  "src/assets/js/swiper-bundle.min.js",
-  "src/assets/js/fullcalendar.main.js",
-  "src/assets/js/jsvectormap.min.js",
-  "src/assets/js/world-merc.js",
-  "src/assets/js/custom/apexcharts.js",
-  "src/assets/js/custom/echarts.js",
-  "src/assets/js/custom/maps.js",
-  "src/assets/js/custom/custom.js"
-]
+            ]
           },
           "configurations": {
             "production": {
