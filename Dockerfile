@@ -15,11 +15,14 @@ RUN npm install --legacy-peer-deps
 # Copy source code
 COPY . .
 
-# Increase Node memory for Angular builds
-ENV NODE_OPTIONS="--max-old-space-size=4096"
+# Increase memory for Angular build
+ENV NODE_OPTIONS=--max-old-space-size=4096
 
-# Build application
+# Build Angular application
 RUN npm run build
+
+# Debug (remove after successful build)
+RUN ls -R /app/dist
 
 # ==========================
 # Stage 2 - Nginx
@@ -33,11 +36,10 @@ RUN rm -f /etc/nginx/conf.d/default.conf
 # Copy custom nginx config
 COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf
 
-# Copy Angular build output
-COPY --from=build /app/dist/angular-ui/browser /usr/share/nginx/html
+# IMPORTANT:
+# Replace "angular-ui" with your actual dist folder name
+COPY --from=build /app/dist/angular-ui /usr/share/nginx/html
 
-# Expose port
 EXPOSE 80
 
-# Start nginx
 CMD ["nginx", "-g", "daemon off;"]
