@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 })
 export class Layout {
  ngOnInit(): void {
-    this.loadScripts();
+    //this.loadScripts();
   }
 
   loadScripts() {
