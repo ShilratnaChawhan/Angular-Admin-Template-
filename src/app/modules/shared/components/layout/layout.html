@@ -1,0 +1,28 @@
+<body class="bg-body-bg">
+
+    <!-- Preloader -->
+    <app-preloader></app-preloader>
+
+    <!-- Sidebar -->
+    <app-sidebar></app-sidebar>
+
+    <!-- Main Content -->
+    <div class="container-fluid">
+        <div class="main-content d-flex flex-column">
+
+            <!-- Header -->
+            <app-header></app-header>
+
+            <!-- Dynamic Page Content -->
+            <router-outlet></router-outlet>
+
+            <!-- Footer -->
+            <app-footer></app-footer>
+
+        </div>
+    </div>
+
+    <!-- Theme -->
+    <app-theme></app-theme>
+
+</body>
