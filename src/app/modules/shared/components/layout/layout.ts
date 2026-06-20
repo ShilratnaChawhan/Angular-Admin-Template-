@@ -7,6 +7,10 @@ import { Component } from '@angular/core';
   styleUrl: './layout.css',
 })
 export class Layout {
+
+  ngAfterViewInit(): void {
+  this.loadScripts();
+}
  ngOnInit(): void {
     //this.loadScripts();
   }
