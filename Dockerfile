@@ -6,29 +6,18 @@ FROM node:22-alpine AS build
 
 WORKDIR /app
 
-# Copy package files
-COPY package*.json ./
+COPY package.json .
+COPY package-lock.json .
 
-# Install dependencies
 RUN npm install --legacy-peer-deps
 
-# Copy source code
 COPY . .
 
-# Increase memory for Angular build
 ENV NODE_OPTIONS=--max-old-space-size=4096
 
-# Build Angular application
-RUN npm run build
+RUN npx ng build
 
-# Debug (remove after successful build)
-RUN ls -R /app/dist
-
-# ==========================
-# Stage 2 - Nginx
-# ==========================
-
-FROM nginx:1.27-alpine
+FROM nginx:1.23-alpine
 
 # Remove default nginx config
 RUN rm -f /etc/nginx/conf.d/default.conf
@@ -42,4 +31,4 @@ COPY --from=build /app/dist/Angular-UI /usr/share/nginx/html
 
 EXPOSE 80
 
-CMD ["nginx", "-g", "daemon off;"]
+
