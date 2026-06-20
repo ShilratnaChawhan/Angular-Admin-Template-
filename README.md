@@ -1,3 +1,6 @@
+# project
+deployed url (https://angular-admin-template.onrender.com/dashboard).
+
 # AngularUI
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.4.
