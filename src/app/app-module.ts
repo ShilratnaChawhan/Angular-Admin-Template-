@@ -5,18 +5,18 @@ import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
 import { CoreModule } from './modules/shared/core/core-module';
 import { AuthenticationModule } from './modules/authentication/module/authentication-module';
-import { Starter } from './modules/main/starter/starter';
+import { MainModule } from './modules/main/main-module';
 
 @NgModule({
   declarations: [
-    App,
-    Starter
+    App
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CoreModule,
-    AuthenticationModule
+    AuthenticationModule,
+    MainModule
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
