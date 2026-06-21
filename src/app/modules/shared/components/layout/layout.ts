@@ -7,15 +7,11 @@ import { Component } from '@angular/core';
   styleUrl: './layout.css',
 })
 export class Layout {
-
-  ngAfterViewInit(): void {
-  this.loadScripts();
-}
- ngOnInit(): void {
-    //this.loadScripts();
+  ngOnInit(): void {
+    this.loadScripts();
   }
 
-  loadScripts() {
+  async loadScripts() {
     const scriptUrls = [
       'assets/js/bootstrap.bundle.min.js',
       'assets/js/sidebar-menu.js',
@@ -37,10 +33,13 @@ export class Layout {
     ];
 
     for (const url of scriptUrls) {
-      const script = document.createElement('script');
-      script.src = url;
-      script.async = true;
-      document.body.appendChild(script);
+      await new Promise<void>((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = url;
+        script.onload = () => resolve();
+        script.onerror = () => reject();
+        document.body.appendChild(script);
+      });
     }
   }
 }
